@@ -127,9 +127,7 @@
 // console.log(resposta)
 
 // a. Explique o que essa função faz e qual é sua utilidade
-// Só retornou True quando digitado a palavra cenoura em quaisquer de suas variantes minusculas, maiusculas ou combinadas.
-// Qualquer palavra diferente de cenoura, retornou false. Portanto, acho que essa função testa se o texto informado pelo
-// usuário é a palavra incluída no banco independente da forma que ele digite.
+// É uma função que recebe um texto como parâmetro, e através da toLowerCase aplicada, passa todas as letras para minusculo, verificando se há palavra diferente de cenoura, o que retorna false.
 
 // b. Determine qual será a saída no console para cada uma das 3 entradas do usuário:
 //    i.   Eu gosto de cenoura // true
@@ -141,31 +139,17 @@
 // a) A função não deve receber nenhum parâmetro e deve imprimir uma mensagem 
 // falando algumas informações sobre você, como: 
 //  "Eu sou Caio, tenho 23 anos, moro em São Paulo e sou estudante."
-// 
-// function meusDados (){
-// const nome = 'Caio'
-// const idade = 23
-// const cidade = 'São Paulo'
-// const ocupacao = 'estudante'
-// const dadosGerais = (`Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e sou ${ocupacao}`)
-// console.log (dadosGerais)
-// return meusDados
-// }
-// meusDados()
-
 // Troque o nome, idade, cidade e se é estudante ou não por informações sobre você. 
 // Lembrando que a função não possui entradas, apenas imprime essa mensagem.
-//
+// 
+// const nome = 'Ederson'
+// const idade = 36
+// const cidade = 'Tatuí'
+// const ocupacao = 'estudante'
 // function meusDados (){
-//   const nome = 'Ederson'
-//   const idade = 36
-//   const cidade = 'Tatuí'
-//   const ocupacao = 'estudante'
-//   const dadosGerais = (`Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e sou ${ocupacao}`)
-//   console.log (dadosGerais)
-//   return meusDados
-//   }
-//   meusDados()
+// console.log(`Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e sou ${ocupacao}`)
+// }
+// meusDados()
 //
 // b)  Agora escreva uma função que receba 4 parâmetros que correspondem às 
 // informações de uma pessoa: o nome (string), a idade (number), a cidade (string) e uma profissão (string). 
@@ -177,45 +161,73 @@
 //     Para a entrada:  "Laís", 23, "São Paulo" e "instrutora", deve retornar:
 //     "Eu sou Laís, tenho 23 anos, moro em Rua Guarapari 190 e sou instrutora."
 
-// function dadosUsuario () {
-//   const nome = 'Ederson'
-//   const idade = 36
-//   const cidade = 'Tatuí'
-//   const ocupacao = 'estudante'
-//   const dadosGerais = (`Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e sou ${ocupacao}`)
-//   console.log (dadosGerais)
-//   return dadosUsuario
+// const nome = 'Ederson'
+// const idade = 36
+// const cidade = 'Tatuí'
+// const profissao = 'estudante'
+// function dadosUsuario (nome, idade, cidade, profissao) {
+// return `Eu sou ${nome}, tenho ${idade} anos, moro em ${cidade} e sou ${profissao}`
 // }
-// dadosUsuario()
+// const frase = dadosUsuario('Ederson', 36, 'Tatuí', 'Estudante')
+// console.log(frase)
 
 //2. Escreva as funções explicadas abaixo:
 
-//a) Escreva uma função que receba 2 números como parâmetros, e, dentro da função, 
-//faça a soma das duas entradas e retorne o resultado. Invoque a função e imprima no console o resultado.
+//a) Escreva uma função que receba 2 números como parâmetros, e, dentro da função, faça a soma das duas entradas e retorne o resultado. Invoque a função e imprima no console o resultado.
 
-// function numeros () {
-// const B = (10)
-// const A = (5)
-// const somaFinal = A + B
-// console.log(somaFinal)
-// return numeros
+// function numeros (numero1, numero2) {
+// return numero1 + numero2
 // }
-// numeros()
+// const somaTotal = numeros(10, 20)
+// console.log(somaTotal)
 
-//b) Faça uma função que recebe 2 números e retorne um booleano que informa 
-//se o primeiro número é maior ou igual ao segundo.
+//b) Faça uma função que recebe 2 números e retorne um booleano que informa se o primeiro número é maior ou igual ao segundo.
+
+// function numeroMaior (numero1, numero2) {
+// return numero1 >= numero2    
+// }
+// const qualPrimeiroMaiorNum = numeroMaior(28,20)
+// console.log(qualPrimeiroMaiorNum)
 
 //c) Escreva uma função que receba um número e devolva um booleano indicando se ele é par ou não
 
-//d) Faça uma função que recebe uma mensagem (string) como parâmetro e imprima o 
-//tamanho dessa mensagem, juntamente com uma versão dela em letras maiúsculas.
+// function verificaParidade(numero) {
+// return numero % 2 === 0
+// }
+// const ehPar = verificaParidade(5)
+// console.log('c', ehPar)
 
-// 3. Crie uma função para cada uma das operações básicas (soma, subtração, multiplicação e divisão). 
-// Em seguida, peça para o usuário inserir dois números e chame essas 4 funções com esses valores 
-// inputados pelo usuário sendo o argumento. Por fim, mostre no console o resultado das operações:
+//d) Faça uma função que recebe uma mensagem (string) como parâmetro e imprima o tamanho dessa mensagem, juntamente com uma versão dela em letras maiúsculas.
+
+// function qualTamanho(texto) {
+// return `${texto.length}, ${texto.toUpperCase()}`
+// }
+// console.log('d)', qualTamanho('Nao sei programar'))
+
+// 3. Crie uma função para cada uma das operações básicas (soma, subtração, multiplicação e divisão). Em seguida, peça para o usuário inserir dois números e chame essas 4 funções com esses valores inputados pelo usuário sendo o argumento. Por fim, mostre no console o resultado das operações:
 
 // Números inseridos: 30 e 3
 // Soma: 33
 // Diferença: 27
 // Multiplicação: 90
 // Divisão: 10
+
+// function soma(numero1, numero2) {
+// return numero1 + numero2
+// }
+// function subtrai(numero1, numero2) {
+// return numero1 - numero2    
+// }
+// function multiplica(numero1, numero2) {
+// return numero1 * numero2    
+// }
+// function divide(numero1, numero2) {
+// return numero1 / numero2
+// }
+// const primeiroNumero = Number(prompt('insira o primeiro numero'))
+// const segundoNumero = Number(prompt('insira o segundo numero'))
+// console.log('soma:', soma(primeiroNumero, segundoNumero))
+// console.log('diferenca:', subtrai(primeiroNumero, segundoNumero))
+// console.log('multiplicacao:', multiplica(primeiroNumero, segundoNumero))
+// console.log('divisao:', divide(primeiroNumero, segundoNumero))
+
