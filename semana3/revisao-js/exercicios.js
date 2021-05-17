@@ -2,13 +2,7 @@
 
 function inverteArray(array) {
   // implemente sua lógica aqui
-   const invertido = array.reduceRight(function (array1, ultimo, indice) {
-      return (array1 = array1.concat(ultimo))
-   }, []);
-   console.log(array, invertido)
 }
-
-inverteArray(0, 8, 23, 16, 10, 15, 41, 12, 13)
 
 //Exercício 2
 
@@ -20,25 +14,13 @@ function retornaNumerosParesElevadosADois (array) {
 
 function retornaNumerosPares (array) {
    // implemente sua lógica aqui
-   let i = []
-   
 }
 
 //Exercício 4
 
 function retornaMaiorNumero(array) {
    // implemente sua lógica aqui
-   let i = 0
-   let maiorNumero = 0
-   while (i < array.length) {
-      if (array[i] > maiorNumero){
-         maiorNumero = array[i]
-      }
-      i++
-   }
-   return maiorNumero
 }
-
 
 //Exercício 5
 
@@ -62,13 +44,7 @@ function retornaNNumerosPares(n) {
 
 function checaTriangulo(a, b, c) {
   // implemente sua lógica aqui
-  let equilátero = 'a' === 'b' === 'c'
-  let isósceles = 'a' === 'b' !== 'c'
-  let escaleno = 'a' !== 'b' !== 'c'
-  return(`o triângulo é ${equilátero}`)
-  console.log(equilátero)
 }
-checaTriangulo()
 
 // Exercício 9
 
