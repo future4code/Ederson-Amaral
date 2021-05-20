@@ -50,8 +50,8 @@ div img {
     font-size: 20px;
     color: white;
     position: relative;
-    top: 50px;
-    right: 400px;
+    top: 0px;
+    right: 0px;
 
 }
 
@@ -100,8 +100,10 @@ div img {
 
 #container-para-comprar>p {
     color: #c44f00;
-    padding: 100px 0;
+    padding: 5px 0;
     font-size: 60px;
+    text-align: center;
+    display: block;
 }
 
 
