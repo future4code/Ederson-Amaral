@@ -62,7 +62,10 @@ div img {
 }
 
 .icone {
-    height: 15px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 66px;
 }
 
 
@@ -125,6 +128,7 @@ td button {
     margin-top: 20px;
     height: 100px;
 }
+
 
 
 #back-button {
