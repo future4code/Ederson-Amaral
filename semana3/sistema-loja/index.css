@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    
+}
+
+.fundo img{
+    max-width: 200px;
+    max-height: 200px;
+    padding: 4px;
+    text-align: center;
+}
+
+.cabecalho {
+    width: auto;
+    height: auto;
+    position:relative;
+    text-align: center;
+    padding: 4px;
+}
+
+.links {
+    height: 150px;
+    text-align: center;
+}
+
+.links > a {
+    display: block;
+    width: 15%;
+    float: left;
+    border: 2px solid rgb(0, 100, 45);
+    background-color: rgb(155, 238, 155);
+    text-align: center;
+    margin: 6px 0 6px 6px;
+    padding: 4px;
+}
+
+
+.mensagem > p {
+    width: 50%;
+    background-color: salmon;
+    height: 150px;
+    text-align: center;
+
+}
+
+h4 > p {
+ background-color: aquamarine;
+ color: blueviolet;
+ display: inline;
+ text-align: center;
+ 
+}
+.rodape > p {
+    background-color:rgb(4, 84, 94);
+    height: 100px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border: 2px rgb(2, 71, 80);
+}
+
+.rodape > p {
+    width: 55%;
+    float: left;
+    text-align: center;
+    margin: 60px auto;
+    border: 2px rgb(2, 71, 80);
+}
+
+.img-rodape {
+    width: 30%;
+    float: left;
+    text-align: left;
+    margin: 80px auto;
+}
+
+.img-rodape > img {
+    height: 30px;
+    margin: 5px;
+}
