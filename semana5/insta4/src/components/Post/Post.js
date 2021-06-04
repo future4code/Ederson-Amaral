@@ -54,14 +54,23 @@ class Post extends React.Component {
   onClickCurtida = () => {
     console.log('Curtiu!')
     // não estava configurado a linha abaixo, e como está configurado um console.log, no console do navegador é possível ver que foi clicado no botão, mesmo que não tenha sido configurada a exibição dessa ação com a linha abaixo.
-    this.setState({curtido: !this.state.curtido})
-    this.setState({numeroCurtidas: this.state.numeroCurtidas + 1})
+    let novoNumeroCurtidas
+    if(this.state.curtido){ 
+      novoNumeroCurtidas = this.state.numeroCurtidas - 1
+    } else {
+      novoNumeroCurtidas = this.state.numeroCurtidas + 1
     // this.setState({numeroCurtidas: this.state.numeroCurtidas - 1})
   }
- 
+
+  this.setState({
+    curtido: !this.state.curtido,
+    numeroCurtidas: novoNumeroCurtidas
+  })
+}
+
   onClickComentario = () => {
     
-    this.setState({comentando: !this.state.comentando + 1})
+    this.setState({ comentando: !this.state.comentando })
   }
   // a função "onClickComentario" habilita no navegador a caixa de dialogo para que o usuário possa inserir o comentário em si.
 
