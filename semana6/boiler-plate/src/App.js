@@ -8,6 +8,7 @@ const TarefaList = styled.ul`
 `
 
 const Tarefa = styled.li`
+  list-style: none;
   text-align: left;
   text-decoration: ${({completa}) => (completa ? 'line-through' : 'none')};
 `
@@ -20,18 +21,31 @@ const InputsContainer = styled.div`
 
 class App extends React.Component {
     state = {
-      tarefas: [{id: Date.now(), texto: 'Codar', completa: false},
-    {id: Date.now(), texto: 'Conferir', completa: true}],
+      tarefas: [
+        {
+          id: Date.now(),
+          texto: '',
+          completa: false
+        },
+        {
+          id: Date.now(),
+          texto: '',
+          completa: true}
+        ],
       inputValue: '',
       filtro: ''
     }
 
   componentDidUpdate() {
-
+      localStorage.setItem('tarefas', JSON.stringify(this.state.tarefas))
   };
 
   componentDidMount() {
-
+      const tarefasSalvas = localStorage.getItem('tarefas')
+      const arrayTarefas = JSON.parse(tarefasSalvas)
+      if(arrayTarefas) {
+        this.setState({tarefas: arrayTarefas})
+      }
   };
 
   onChangeInput = (event) => {
@@ -45,16 +59,27 @@ class App extends React.Component {
         completa: false
       }
 
-      const novaListaDeTarefas = [novaTarefa, ...this.state.tarefas]
-      this.setState({novaTarefa: novaListaDeTarefas})
+      const novaListaDeTarefas = [...this.state.tarefas, novaTarefa]
+      this.setState({tarefas: novaListaDeTarefas})
   }
 
   selectTarefa = (id) => {
-
+      const novaLista = this.state.tarefas.map((tarefa) => {
+        if(id === tarefa.id) {
+          const tarefaNova = {
+            ...tarefa,
+            completa: !tarefa.completa
+          }
+          return tarefaNova
+        } else {
+          return tarefa
+        }
+      })
+      this.setState({tarefas: novaLista})
   }
 
   onChangeFilter = (event) => {
-
+    this.setState({filtro: event.target.value})
   }
 
   render() {
