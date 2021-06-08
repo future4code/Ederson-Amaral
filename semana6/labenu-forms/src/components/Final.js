@@ -1,13 +1,14 @@
 import React from 'react';
 
-export const Etapa2 = () => {
+export default function PerguntaAberta(props) {
   return (
     <div>
-      <h1>O FORMULÁRIO ACABOU</h1>
+      <h3>O FORMULÁRIO ACABOU</h3>
       <p>Muito obrigado por participar! Entraremos em contato!</p>
     </div>
   );
-};
+}
+
 
     
   

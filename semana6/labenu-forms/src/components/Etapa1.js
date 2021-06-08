@@ -1,46 +1,30 @@
 import React from 'react';
-import { Etapa2 } from './Etapa2';
-import { Etapa3 } from './Etapa3';
-import { Final } from './Final';
+import PerguntaAberta from "./PerguntaAberta";
+import PerguntaOpcoes from "./PerguntaOpcoes";
 
-export default class Etapa1 extends React.Component {
-  state = {
-    pagina: ""
-  };
-
-  alternaParaEtapa2 = () => {
-    this.setState({ pagina: "Etapa2" });
-  };
-
-  alternaParaEtapa3 = () => {
-    this.setState({ pagina: "Etapa3" });
-  };
-
-  alternaParaFinal = () => {
-    this.setState({ pagina: "Final" });
-  };
-
+class Etapa1 extends React.Component {
   render() {
-    const renderizaPagina = () => {
-      switch (this.state.pagina) {
-        case 'Final':
-          return <Final />;
-        case 'Etapa2':
-          return <Etapa2 />;
-        case 'Etapa3':
-          return <Etapa3 />;
-        default:
-          return <div></div>;
-      };
-    };
-
     return (
       <div>
-        <h1>ETAPA 1 - DADOS GERAIS</h1>
-        {renderizaPagina()}
+        <h3>ETAPA 1 - DADOS GERAIS</h3>
+        <PerguntaAberta pergunta={"1. Qual o seu nome?"} />
+        <PerguntaAberta pergunta={"2. Qual sua idade?"} />
+        <PerguntaAberta pergunta={"3. Qual seu email?"} />
+        <PerguntaOpcoes
+          pergunta={"4. Qual a sua escolaridade?"}
+          opcoes={[
+            "Ensino médio incompleto",
+            "Ensino médio completo",
+            "Ensino superior incompleto",
+            "Ensino superior completo"
+          ]}
+        />
       </div>
     );
   }
 }
+
+export default Etapa1;
+
 
 
