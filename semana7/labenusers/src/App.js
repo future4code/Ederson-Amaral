@@ -1,9 +1,8 @@
 import React from 'react';
-// import Cadastro from './components/Cadastro';
-import './App.css';
-import axios from 'axios';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+import TelaCadastro from './components/TelaCadastro';
+import TelaListaUsuarios from './components/TelaListaUsuario';
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -20,29 +19,39 @@ const Telalogin = styled.div`
     width: 20%;
     margin: auto;
     padding: 30px; 
-`; 
+`;
 
-function App() {
-  return (
-    <div className="App">
-      <button>
-        <p>
-          'Ir para página de lista'
-        </p>
-      </button>
-      <header className="Formulario">
-        <div className="Telalogin" alt="Tela de Login">
-          <label forhtml='name'>Nome: </label>
-          <input required id='name' name='name' type='text' value></input>
-        </div>
-        <div>
-          <label forhtml='email'>E-mail: </label>
-          <input required id='email' name='email' type='email' value></input>
-        </div>
-        <button class='Salvar'>'Salvar'</button>
-      </header>
-    </div >
-  );
+class App extends React.Component {
+  state = {
+    telaAtual: 'cadastro'
+  }
+
+  escolheTela = () => {
+    switch (this.state.telaAtual){
+      case 'cadastro':
+        return  <TelaCadastro irParaLista={this.irParaLista}/>
+      case 'lista':
+        return <TelaListaUsuarios irParaCadastro={this.irParaCadastro}/>
+      default:
+        return <div>Erro! Página não encontrada :</div>
+    }
+  }
+
+  irParaCadastro = () => {
+    this.setState({telaAtual: 'cadastro'})
+  }
+
+  irParaLista = () => {
+    this.setState({telaAtual: 'lista'})
+  }
+
+  render() {
+    return (
+      <div>
+        {this.escolheTela()}        
+      </div>      
+    );
+  }
 }
 
 export default App;
