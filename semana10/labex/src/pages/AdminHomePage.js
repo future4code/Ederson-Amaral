@@ -1,9 +1,25 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { TripDetailsPage } from './TripDetailsPage';
 
 export const AdminHomePage = () => {
+    const history = useHistory ()
+
+    const goToCreateTripPage = () => {
+        history.push('/CreateTripPage')
+    }
+
+    const goToHomePage = () => {
+        history.push('/')
+    }
+
     return (
         <div>
-        <p>PÁGINA ADMIN</p>
+        <p>Menu do Administrador</p>
+        <button onClick={goToHomePage}>Voltar</button>
+        <button onClick={goToCreateTripPage}>Criar Viagem</button>        
+        <button>Logout</button>
+        <TripDetailsPage />        
         </div>
     )
 }
