@@ -5,11 +5,11 @@ export const HomePage = () => {
     const history = useHistory ()
 
     const goToListTripsPage = () => {
-        history.push('/ListTripsPage')
+        history.push('/trips/list')
     }
 
     const goToAdminHomePage = () => {
-        history.push('/AdminHomePage')
+        history.push('/admin/trips/list')
     }
 
     return (

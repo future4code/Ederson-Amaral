@@ -6,7 +6,7 @@ export const AdminHomePage = () => {
     const history = useHistory ()
 
     const goToCreateTripPage = () => {
-        history.push('/CreateTripPage')
+        history.push('/admin/trips/create')
     }
 
     const goToHomePage = () => {

@@ -5,7 +5,7 @@ export const ListTripsPage = () => {
     const history = useHistory ()
 
     const goToApplicationFormPage = () => {
-        history.push('/ApplicationFormPage')
+        history.push('/trips/application')
     }
 
     const goToHomePage = () => {

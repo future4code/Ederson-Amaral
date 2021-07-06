@@ -15,23 +15,28 @@ export const Router = () => {
         <Route exact path={'/'}>
           <HomePage />
         </Route>
-        <Route exact path={'/AdminHomePage'}>
+        <Route exact path={'/admin/trips/list'}>
           <AdminHomePage />
         </Route>
-        <Route exact path={'/ApplicationFormPage'}>
+        <Route exact path={'/trips/application'}>
           <ApplicationFormPage />
         </Route>
-        <Route exact path={'/CreateTripPage'}>
+        <Route exact path={'/admin/trips/create'}>
           <CreateTripPage />
         </Route>
-        <Route exact path={'/ListTripsPage'}>
+        <Route exact path={'/trips/list'}>
           <ListTripsPage />
         </Route>
-        <Route exact path={'/LoginPage'}>
+        <Route exact path={'/login'}>
           <LoginPage />
         </Route>
-        <Route exact path={'/TripDetailsPage'}>
+        <Route exact path={'/admin/trips/:id'}>
           <TripDetailsPage />
+        </Route>
+        <Route>
+          <div>
+            <h1>Error 404 - Page Is Not Found</h1>
+          </div>
         </Route>
       </Switch>
     </BrowserRouter>

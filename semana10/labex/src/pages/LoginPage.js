@@ -5,7 +5,7 @@ export const LoginPage = () => {
     const history = useHistory ()
 
     const goToAdminHomePage = () => {
-        history.push('/AdminHomePage')
+        history.push('/admin/trips/list')
     }
 
     const goToHomePage = () => {
