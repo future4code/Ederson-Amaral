@@ -8,8 +8,8 @@ export const HomePage = () => {
         history.push('/trips/list')
     }
 
-    const goToAdminHomePage = () => {
-        history.push('/admin/trips/list')
+    const goToLoginPage = () => {
+        history.push('/login')
     }
 
     return (
@@ -17,7 +17,7 @@ export const HomePage = () => {
         <h1>LabeX</h1>
         <p>As melhores viagens espaciais, você encontra aqui</p>
         <button onClick={goToListTripsPage}>Lista de Viagens</button>
-        <button onClick={goToAdminHomePage}>Acesso Administrador</button>
+        <button onClick={goToLoginPage}>Acesso Administrador</button>
         </div>
         
     )
