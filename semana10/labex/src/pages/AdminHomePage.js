@@ -9,14 +9,14 @@ export const AdminHomePage = () => {
         history.push('/admin/trips/create')
     }
 
-    const goToHomePage = () => {
-        history.push('/')
+    const goToAdminHomePage = () => {
+        history.push('/admin/trips/list')
     }
 
     return (
         <div>
         <p>Menu do Administrador</p>
-        <button onClick={goToHomePage}>Voltar</button>
+        <button onClick={goToAdminHomePage}>Voltar</button>
         <button onClick={goToCreateTripPage}>Criar Viagem</button>        
         <button>Logout</button>
         <TripDetailsPage />        
