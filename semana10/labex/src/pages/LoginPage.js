@@ -16,6 +16,7 @@ export const LoginPage = () => {
     }
 
     const goToAdminHomePage = () => {
+       
         const body = {
             email: email,
             password: password
@@ -26,9 +27,7 @@ export const LoginPage = () => {
             history.push('/admin/trips/list')
         }).catch((error) => {
             alert('usuário ou senha incorretos', error.response)            
-        })
-        
-        
+        })        
     }
 
     const goToHomePage = () => {
@@ -37,21 +36,23 @@ export const LoginPage = () => {
 
     return (
         <div>
-        <p>LOGIN</p>
+        <p>LOGIN</p>       
         <input 
         placeholder='email'
         type='email'
+        required
         value={email}
-        onChange={onChangeEmail}
+        onChange={onChangeEmail}        
         />
         <input
         placeholder='password'
         type='password'
+        required
         value={password}
         onChange={onChangePassword}
         />        
         <button onClick={goToHomePage}>Voltar</button>
-        <button onClick={goToAdminHomePage}>Login</button>        
+        <button onClick={goToAdminHomePage}>Login</button>               
         </div>
     )
 }
