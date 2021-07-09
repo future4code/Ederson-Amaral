@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 const useForm = (initialState) => {
     const [form, setForm] = useState(initialState)
@@ -8,7 +8,10 @@ const useForm = (initialState) => {
         setForm({ ...form, [name]: value })
     }
 
-    return { form, onChange }
+    const clear = () => {
+        setForm(initialState)
+    }
+    return { form, onChange, clear }
 }
 
 export default useForm

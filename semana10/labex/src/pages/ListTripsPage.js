@@ -1,22 +1,25 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import useRequestData from '../hooks/useRequestData';
+import { goToHomePage, goToApplicationFormPage } from '../route/Coordinator';
+import TripCard from '../components/TripCard/TripCard';
 
-export const ListTripsPage = () => {
+const ListTripsPage = () => {
     const history = useHistory ()
-
-    const goToApplicationFormPage = () => {
-        history.push('/trips/application')
-    }
-
-    const goToHomePage = () => {
-        history.push('/')
-    }
+    const [tripsData] = useRequestData("/trips", {})
+    
+    const tripsList = tripsData.trips && tripsData.trips.map((trips) => {
+        return <TripCard key={trips.id} trip={trips} />
+    })
 
     return (
         <div>
-        <p>LISTA DE VIAGENS</p>
-        <button onClick={goToHomePage}>Voltar</button>
-        <button onClick={goToApplicationFormPage}>Inscreva-se para Viagem</button>
+        <button onClick={() => goToHomePage(history)}>Voltar</button>
+        <button onClick={() => goToApplicationFormPage(history)}>Inscreva-se</button>
+        <p>Viagens disponíveis</p>
+        {tripsList && tripsList.length > 0 ? tripsList : <p>Please Wait...</p>}
         </div>
     )
 }
+
+export default ListTripsPage
