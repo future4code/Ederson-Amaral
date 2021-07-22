@@ -1,21 +1,26 @@
 import TextField from '@material-ui/core/TextField'
-import React from 'react'
+import React, {useState} from 'react'
 import { InputsContainer, SignUpFormContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import Button from '@material-ui/core/Button'
+import {signUp} from "../../services/user"
 
-const RegisterForm = () => {
+const RegisterForm = ({setRightButtonText}) => {
     const history = useHistory()
     const [form, onChange, clear] = useForm({ username: '', email: '', password: '' })
+    const [isLoading, setIsLoading] = useState(false)
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        signUp(form, clear, history, setRightButtonText, setIsLoading)        
     }
 
     return (
         <form onSubmit={onSubmitForm}>
-        <SignUpFormContainer>       
-            <InputsContainer>
+            <SignUpFormContainer>
+                <InputsContainer>
                     <TextField
                         name={'username'}
                         value={form.username}
@@ -26,7 +31,7 @@ const RegisterForm = () => {
                         margin={'normal'}
                         required
                         autoFocus
-                    />                
+                    />
                     <TextField
                         name={'email'}
                         value={form.email}
@@ -49,9 +54,17 @@ const RegisterForm = () => {
                         required
                         type={'password'}
                     />
-                    </InputsContainer>                               
-            </SignUpFormContainer> 
-            </form>
+                </InputsContainer>
+                <Button
+                    color={'primary'}
+                    variant={'contained'}
+                    type={'submit'}
+                    fullWidth
+                >
+                    {isLoading ? <CircularProgress color={"inherit"} size={24} /> : <>Cadastrar</>}
+                </Button>
+            </SignUpFormContainer>
+        </form>
     )
 }
 

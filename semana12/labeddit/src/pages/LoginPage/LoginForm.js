@@ -1,19 +1,26 @@
 import TextField from '@material-ui/core/TextField'
-import React from 'react'
-import { InputsContainer } from './styled'
+import React, { useState } from 'react'
+import { InputsContainer, LoginFormContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import Button from '@material-ui/core/Button'
+import { login } from '../../services/user'
+import { useHistory } from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
-const LoginForm = () => {
+const LoginForm = ({ setRightButtonText }) => {
     const [form, onChange, clear] = useForm({ email: '', password: '' })
+    const history = useHistory()
+    const [isLoading, setIsLoading] = useState(false)
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        login(form, clear, history, setRightButtonText, setIsLoading)
     }
 
-    return (        
-            <InputsContainer>
-                <form onSubmit={onSubmitForm}>
+    return (
+        <LoginFormContainer>
+            <form onSubmit={onSubmitForm}>
+                <InputsContainer>
                     <TextField
                         name={'email'}
                         value={form.email}
@@ -36,17 +43,17 @@ const LoginForm = () => {
                         required
                         type={'password'}
                     />
-                    <Button
-                        type={'submit'}
-                        fullWidth
-                        variant={'contained'}
-                        color={'primary'}
-                        margin={'normal'}
-                    >
-                        Entrar
-                    </Button>
-                </form>
-            </InputsContainer>
+                </InputsContainer>
+                <Button
+                    type={"submit"}
+                    fullWidth
+                    variant={"contained"}
+                    color={"primary"}
+                >
+                    {isLoading ? <CircularProgress color={"inherit"} size={24} /> : <>Entrar</>}
+                </Button>
+            </form>
+        </LoginFormContainer>
     )
 }
 

@@ -1,28 +1,16 @@
 import React from 'react'
-import { ScreenContainer, SignUpButtonContainer, LogoImage } from './styled'
+import { ScreenContainer, LogoImage } from './styled'
 import logo from '../../assets/logo.png'
-import Button from '@material-ui/core/Button'
 import RegisterForm from './RegisterForm'
-import { useHistory } from 'react-router-dom'
-import { goToFeed } from '../../routes/coordinator'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
-const RegisterPage = () => {
-    const history = useHistory()
+
+const RegisterPage = ({setRightButtonText}) => {
+    useUnprotectedPage()
     return (
         <ScreenContainer>
         <LogoImage src={logo}/>
-           <RegisterForm/>
-            <SignUpButtonContainer>
-                <Button
-                    type={'submit'}
-                    fullWidth
-                    variant={'contained'}
-                    color={'primary'}                    
-                    onClick={() => goToFeed(history)}
-                >
-                    Cadastrar
-                </Button>
-            </SignUpButtonContainer>
+           <RegisterForm setRightButtonText={setRightButtonText}/>         
         </ScreenContainer>
 
     )
