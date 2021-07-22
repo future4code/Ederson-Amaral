@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { InputsContainer, LoginFormContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import Button from '@material-ui/core/Button'
-import { login } from '../../services/user'
+import { login } from '../../services/users'
 import { useHistory } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
 

@@ -5,7 +5,7 @@ import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Button from '@material-ui/core/Button'
-import {signUp} from "../../services/user"
+import {signUp} from "../../services/users"
 
 const RegisterForm = ({setRightButtonText}) => {
     const history = useHistory()
